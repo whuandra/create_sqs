@@ -23,7 +23,7 @@ resource "aws_sqs_queue_policy" "test" {
       "Effect": "Allow",
       "Principal": "*",
       "Action": "sqs:SendMessage",
-      "Resource": "${aws_sqs_queue.win_queue.arn}",
+      "Resource": "${aws_sqs_queue.win_queue.arn}"
     }
   ]
 }
