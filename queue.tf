@@ -15,7 +15,7 @@ resource "aws_sqs_queue_policy" "test" {
   
   policy = <<POLICY
 {
-"Version": "2012-10-17",
+  "Version": "2012-10-17",
   "Id": "sqspolicy",
   "Statement": [
     {
