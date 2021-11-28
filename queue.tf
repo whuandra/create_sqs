@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_sqs_queue" "win_queue" {
   name = "tf_queue"
   delay_seconds = 90
-  max_message_size = 2048
+  max_message_size = 4096
   tags = {
     environment = "dev"
     }
