@@ -15,6 +15,7 @@ resource "aws_sqs_queue" "win_queue" {
   name = "tf_queue"
   delay_seconds = 90
   max_message_size = 4096
+  kms_master_key_id = "alias/tf_queue"
   tags = {
     environment = "dev"
     }
