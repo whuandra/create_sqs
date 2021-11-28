@@ -2,6 +2,15 @@ provider "aws" {
   region = "us-east-1"
   }
 
+resource "aws_kms_key" "win_kms" {
+  enable_key_rotation = true
+}
+
+resource "aws_kms_alias" "win_kms" {
+  name = "alias/tf_queue"
+  target_key_id = aws_kms_key.win_kms.key_id
+}
+
 resource "aws_sqs_queue" "win_queue" {
   name = "tf_queue"
   delay_seconds = 90
