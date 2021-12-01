@@ -32,7 +32,11 @@ resource "aws_sqs_queue_policy" "test" {
       "Sid": "First",
       "Effect": "Allow",
       "Principal": "*",
-      "Action": "sqs:SendMessage",
+      "Action": [
+        "sqs:SendMessage",
+        "sqs:ReceiveMessage",
+        "sqs:GetQueueUrl"
+        ],
       "Resource": "${aws_sqs_queue.win_queue.arn}"
     }
   ]
