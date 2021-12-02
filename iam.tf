@@ -15,9 +15,10 @@ resource "aws_iam_group_membership" "aws_aci_membership" {
 }
 
 
-
-
-
+resource "aws_iam_group_policy_attachment" "aws_aci_pol_attach" { 
+  group      = aws_iam_group.aws_aci_group.name
+  policy_arn = aws_iam_policy.aws_aci_pol[0].arn
+}
 
 resource "aws_iam_policy" "aws_aci_pol" { 
   name  = "aci-iam-policy"
