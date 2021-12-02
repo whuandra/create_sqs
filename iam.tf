@@ -39,8 +39,8 @@ resource "aws_iam_policy" "aws_aci_pol" {
         "sqs:ListQueues"
       ],
       "Effect": "Allow",
-      "Resource": [
-        "aws_sqs_queue.win_queue.arn"
+      "Resource": [ 
+        {"aws_sqs_queue.win_queue.arn"}
       ]
     }
   ]
