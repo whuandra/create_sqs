@@ -40,7 +40,7 @@ resource "aws_iam_policy" "aws_aci_pol" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${module.wires-prod_sqs.arn}"
+        "aws_sqs_queue.win_queue.arn"
       ]
     }
   ]
