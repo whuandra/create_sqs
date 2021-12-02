@@ -34,7 +34,6 @@ resource "aws_sqs_queue_policy" "test" {
       "Principal": "*",
       "Action": [
         "sqs:SendMessage",
-        "sqs:ReceiveMessage",
         "sqs:GetQueueUrl"
         ],
       "Resource": "${aws_sqs_queue.win_queue.arn}"
