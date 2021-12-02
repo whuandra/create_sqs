@@ -14,3 +14,43 @@ resource "aws_iam_group_membership" "aws_aci_membership" {
   ]
 }
 
+
+
+
+
+
+resource "aws_iam_policy" "aws_aci_pol" { 
+  name  = "aci-iam-policy"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1555443955472",
+      "Action": [
+        "sqs:GetQueueAttributes",
+        "sqs:GetQueueUrl",
+        "sqs:SendMessage",
+        "sqs:SendMessageBatch",
+        "sqs:DeleteMessage",
+        "sqs:DeleteMessageBatch",
+        "sqs:ReceiveMessage",
+        "sqs:ListQueues"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "${module.wires-prod_sqs.arn}",
+        "${module.dr_wires-prod_sqs.arn}",
+        "${module.digital-message-prod_sqs.arn}",
+        "${module.payments-prod_sqs.arn}",
+        "${module.dr_payments-prod_sqs.arn}",
+        "${module.moneymovement-prod_sqs.arn}",
+        "${module.dr_moneymovement-prod_sqs.arn}"        
+      ]
+    }
+  ]
+}
+EOF
+
+}
