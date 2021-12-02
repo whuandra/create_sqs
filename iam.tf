@@ -40,13 +40,7 @@ resource "aws_iam_policy" "aws_aci_pol" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${module.wires-prod_sqs.arn}",
-        "${module.dr_wires-prod_sqs.arn}",
-        "${module.digital-message-prod_sqs.arn}",
-        "${module.payments-prod_sqs.arn}",
-        "${module.dr_payments-prod_sqs.arn}",
-        "${module.moneymovement-prod_sqs.arn}",
-        "${module.dr_moneymovement-prod_sqs.arn}"        
+        "${module.wires-prod_sqs.arn}"
       ]
     }
   ]
